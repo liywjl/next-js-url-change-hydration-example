@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 
-import Nav from "../../../components/Nav";
 import styles from "../../../styles/Home.module.css";
+import Nav from "../../../components/Nav";
+import Header from "../../../components/Header";
 
 export default function Stepper() {
   const { query } = useRouter();
@@ -14,9 +15,12 @@ export default function Stepper() {
 
   return (
     <div className={styles.container}>
+      <Header />
       <Nav />
-      <h2>NestedID Page Router Query</h2>
-      {JSON.stringify(query)}
+      <div>
+        <h2>NestedID Page Router Query</h2>
+        {JSON.stringify(query)}
+      </div>
     </div>
   );
 }

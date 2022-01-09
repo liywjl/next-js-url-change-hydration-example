@@ -55,34 +55,40 @@ export default function Stepper() {
   }
 
   return (
-    <div className={styles.container}>
-      <Header />
-      <Nav />
+    <>
+      <div className={styles.container}>
+        <Header />
+        <div className={styles.row}>
+          <Nav />
 
-      <main className={styles.main}>
-        <div>Step: {step}</div>
-        {stepComponent}
-        {indexOfCurrentStep > MIN_STEP_INDEX && (
-          <button
-            onClick={() => {
-              push(`/stepper/${productTypes[indexOfCurrentStep - 1]}`);
-              setStep(productTypes[indexOfCurrentStep - 1]);
-            }}
-          >
-            Previous
-          </button>
-        )}
-        {indexOfCurrentStep < MAX_STEP_INDEX && (
-          <button
-            onClick={() => {
-              push(`/stepper/${productTypes[indexOfCurrentStep + 1]}`);
-              setStep(productTypes[indexOfCurrentStep + 1]);
-            }}
-          >
-            Next
-          </button>
-        )}
-      </main>
-    </div>
+          <div className={styles.container}>
+            <main className={styles.main}>
+              <div>Step: {step}</div>
+              {stepComponent}
+              {indexOfCurrentStep > MIN_STEP_INDEX && (
+                <button
+                  onClick={() => {
+                    push(`/stepper/${productTypes[indexOfCurrentStep - 1]}`);
+                    setStep(productTypes[indexOfCurrentStep - 1]);
+                  }}
+                >
+                  Previous
+                </button>
+              )}
+              {indexOfCurrentStep < MAX_STEP_INDEX && (
+                <button
+                  onClick={() => {
+                    push(`/stepper/${productTypes[indexOfCurrentStep + 1]}`);
+                    setStep(productTypes[indexOfCurrentStep + 1]);
+                  }}
+                >
+                  Next
+                </button>
+              )}
+            </main>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }

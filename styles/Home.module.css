@@ -6,7 +6,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
 }
 
 .column {
@@ -18,13 +17,22 @@
   align-items: flex-start;
 }
 
-.nav {
-  border: groove;
-  margin: 5px;
+.nav table {
+  margin-bottom: 15px;
 }
 
 .nav h2 {
   margin: 5px;
+}
+
+.nav table,
+.nav th,
+.nav td {
+  border: 1px solid black;
+}
+
+.nav td {
+  width: 150px;
 }
 
 .main {
