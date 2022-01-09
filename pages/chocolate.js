@@ -2,7 +2,6 @@ import { useEffect } from "react";
 
 import styles from "../styles/Home.module.css";
 import Nav from "../components/Nav";
-import Header from "../components/Header";
 
 export default function Chocolate() {
   useEffect(() => {
@@ -13,7 +12,6 @@ export default function Chocolate() {
   return (
     <>
       <div className={styles.container}>
-        <Header />
         <div className={styles.row}>
           <Nav />
           <div className={styles.container}>

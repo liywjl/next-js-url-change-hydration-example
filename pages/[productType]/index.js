@@ -5,7 +5,6 @@ import { productTypes } from "../../constants";
 import styles from "../../styles/Home.module.css";
 
 import Nav from "../../components/Nav";
-import Header from "../../components/Header";
 import StepOne from "../../components/StepOne";
 import StepTwo from "../../components/StepTwo";
 import StepThree from "../../components/StepThree";
@@ -57,7 +56,6 @@ export default function Stepper() {
   return (
     <>
       <div className={styles.container}>
-        <Header />
         <div className={styles.row}>
           <Nav />
 
