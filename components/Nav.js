@@ -8,62 +8,43 @@ const Nav = function () {
   const { query, push } = useRouter();
   return (
     <div className={styles.nav}>
-      <h2>Parent Rout</h2>
-      <div className={styles.row}>
-        <div className={styles.column}>
-          <h3>Using A tags</h3>
-          <ul>
-            {productTypes.map((productType) => (
-              <li key={`${productType}-a-tags`}>
+      <table>
+        <thead>
+          <tr>
+            <th>Product Type (dynamic routes)</th>
+            <th>{"<a ...>"}</th>
+            <th>{"<Link ...>"}</th>
+            <th>{"<Link shallow ...>"}</th>
+            <th>{"Router.push(...)"}</th>
+            <th>{"Router.push(... { shallow: true })"}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {productTypes.map((productType) => (
+            <tr key={productType}>
+              <td>{productType}</td>
+              <td>
                 <a
                   href={`/stepper/${productType}`}
                 >{`/stepper/${productType}`}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className={styles.column}>
-          <h3>Using Next Link</h3>
-          <ul>
-            {productTypes.map((productType) => (
-              <li key={`${productType}-a-tags`}>
+              </td>
+              <td>
                 <Link
                   href={`/stepper/${productType}`}
                 >{`/stepper/${productType}`}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className={styles.column}>
-          <h3>Using Next Link (with Shallow = true)</h3>
-          <ul>
-            {productTypes.map((productType) => (
-              <li key={`${productType}-a-tags`}>
+              </td>
+              <td>
                 <Link
                   shallow
                   href={`/stepper/${productType}`}
                 >{`/stepper/${productType}`}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className={styles.column}>
-          <h3>Using Next Router (button with onClick)</h3>
-          <ul>
-            {productTypes.map((productType) => (
-              <li key={`${productType}-a-tags`}>
+              </td>
+              <td>
                 <button
                   onClick={() => push(`/stepper/${productType}`)}
                 >{`/stepper/${productType}`}</button>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className={styles.column}>
-          <h3>Using Next Router (button with onClick + shallow = true)</h3>
-          <ul>
-            {productTypes.map((productType) => (
-              <li key={`${productType}-a-tags`}>
+              </td>
+              <td>
                 <button
                   onClick={() =>
                     push(`/stepper/${productType}`, undefined, {
@@ -71,127 +52,99 @@ const Nav = function () {
                     })
                   }
                 >{`/stepper/${productType}`}</button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-      <hr />
-      <h2>Secret path (non-dynamic path)</h2>
-      <div className={styles.row}>
-        <div className={styles.column}>
-          <h3>Using A tags</h3>
-          <ul>
-            <li>
-              <a href={`/stepper/chocolate`}>{`/stepper/chocolate`}</a>
-            </li>
-          </ul>
-        </div>
-        <div className={styles.column}>
-          <h3>Using Next Link</h3>
-          <ul>
-            <li>
-              <Link href={`/stepper/chocolate`}>{`/stepper/chocolate`}</Link>
-            </li>
-          </ul>
-        </div>
-        <div className={styles.column}>
-          <h3>Using Next Link (with Shallow = true)</h3>
-          <ul>
-            <li>
-              <Link shallow href={`/stepper/chocolate`}>
-                {`/stepper/chocolate`}
-              </Link>
-            </li>
-          </ul>
-        </div>
-        <div className={styles.column}>
-          <h3>Using Next Router (button with onClick)</h3>
-          <ul>
-            <li>
-              <button onClick={() => push(`/stepper/chocolate`)}>
-                {`/stepper/chocolate`}
-              </button>
-            </li>
-          </ul>
-        </div>
-        <div className={styles.column}>
-          <h3>Using Next Router (button with onClick + shallow = true)</h3>
-          <ul>
-            <li>
-              <button
-                onClick={() =>
-                  push(`/stepper/chocolate`, undefined, {
-                    shallow: true,
-                  })
-                }
-              >
-                {`/stepper/chocolate`}
-              </button>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <hr />
-      <h2>Nested Routing</h2>
-
-      <div className={styles.row}>
-        <div className={styles.column}>
-          <h3>Using A tags</h3>
-          <ul>
-            {productIDs.map((productID) => (
-              <li key={`${productID}-a-tags`}>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <table>
+        <thead>
+          <tr>
+            <th>Product Type (static routes)</th>
+            <th>{"<a ...>"}</th>
+            <th>{"<Link ...>"}</th>
+            <th>{"<Link shallow ...>"}</th>
+            <th>{"Router.push(...)"}</th>
+            <th>{"Router.push(... { shallow: true })"}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {["chocolate"].map((productType) => (
+            <tr key={productType}>
+              <td>{productType}</td>
+              <td>
+                <a
+                  href={`/stepper/${productType}`}
+                >{`/stepper/${productType}`}</a>
+              </td>
+              <td>
+                <Link
+                  href={`/stepper/${productType}`}
+                >{`/stepper/${productType}`}</Link>
+              </td>
+              <td>
+                <Link
+                  shallow
+                  href={`/stepper/${productType}`}
+                >{`/stepper/${productType}`}</Link>
+              </td>
+              <td>
+                <button
+                  onClick={() => push(`/stepper/${productType}`)}
+                >{`/stepper/${productType}`}</button>
+              </td>
+              <td>
+                <button
+                  onClick={() =>
+                    push(`/stepper/${productType}`, undefined, {
+                      shallow: true,
+                    })
+                  }
+                >{`/stepper/${productType}`}</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <table>
+        <thead>
+          <tr>
+            <th>Nested Routes</th>
+            <th>{"<a ...>"}</th>
+            <th>{"<Link ...>"}</th>
+            <th>{"<Link shallow ...>"}</th>
+            <th>{"Router.push(...)"}</th>
+            <th>{"Router.push(... { shallow: true })"}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {productIDs.map((productID) => (
+            <tr key={productID}>
+              <td>{productID}</td>
+              <td>
                 <a
                   href={`/stepper/${query.productType}/${productID}`}
                 >{`/stepper/${query.productType}/${productID}`}</a>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className={styles.column}>
-          <h3>Using Next Link</h3>
-          <ul>
-            {productIDs.map((productID) => (
-              <li key={`${productID}-link-tags`}>
+              </td>
+              <td>
                 <Link
                   href={`/stepper/${query.productType}/${productID}`}
                 >{`/stepper/${query.productType}/${productID}`}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className={styles.column}>
-          <h3>Using Next Link (with Shallow = true)</h3>
-          <ul>
-            {productIDs.map((productID) => (
-              <li key={`${productID}-link-shallow-tags`}>
+              </td>
+              <td>
                 <Link
                   shallow
                   href={`/stepper/${query.productType}/${productID}`}
                 >{`/stepper/${query.productType}/${productID}`}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className={styles.column}>
-          <h3>Using Next Router (button with onClick)</h3>
-          <ul>
-            {productIDs.map((productID) => (
-              <li key={`${productID}-router-tags`}>
+              </td>
+              <td>
                 <button
                   onClick={() =>
                     push(`/stepper/${query.productType}/${productID}`)
                   }
                 >{`/stepper/${query.productType}/${productID}`}</button>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className={styles.column}>
-          <h3>Using Next Router (button with onClick + shallow = true)</h3>
-          <ul>
-            {productIDs.map((productID) => (
-              <li key={`${productID}-router-shallow-tags`}>
+              </td>
+              <td>
                 <button
                   onClick={() =>
                     push(
@@ -203,11 +156,11 @@ const Nav = function () {
                     )
                   }
                 >{`/stepper/${query.productType}/${productID}`}</button>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
