@@ -1,91 +1,35 @@
 import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
 
-import { productTypes } from "../../constants";
 import styles from "../../styles/Home.module.css";
 
 import Nav from "../../components/Nav";
-import StepOne from "../../components/StepOne";
-import StepTwo from "../../components/StepTwo";
-import StepThree from "../../components/StepThree";
-
-const MIN_STEP_INDEX = 0;
-const MAX_STEP_INDEX = 2;
+import InputFullName from "../../components/InputFullName";
 
 export default function Stepper() {
-  const { isReady, push } = useRouter();
-  const [step, setStep] = useState(productTypes[0]);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-
-  const indexOfCurrentStep = productTypes.indexOf(step);
+  const [fullName, setFullName] = useState();
 
   useEffect(() => {
-    console.log("[productType] has mounted");
-    return () => console.log("[productType] has un-mounted");
+    console.log(
+      "%c[productType] %chas mounted",
+      "color: yellow",
+      "color: cyan"
+    );
+    return () =>
+      console.log(
+        "%c[productType] %chas un-mounted",
+        "color: yellow",
+        "color: red"
+      );
   }, []);
-
-  if (!isReady) {
-    return <div>Loading...</div>;
-  }
-
-  let stepComponent = null;
-
-  switch (indexOfCurrentStep) {
-    case 0:
-      stepComponent = (
-        <StepOne
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-        />
-      );
-      break;
-    case 1:
-      stepComponent = (
-        <StepTwo
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-        />
-      );
-      break;
-    case 2:
-      stepComponent = <StepThree firstName={firstName} lastName={lastName} />;
-      break;
-  }
 
   return (
     <>
       <div className={styles.container}>
-        <div className={styles.row}>
-          <Nav />
+        <Nav />
 
-          <div className={styles.container}>
-            <main className={styles.main}>
-              <div>Step: {step}</div>
-              {stepComponent}
-              {indexOfCurrentStep > MIN_STEP_INDEX && (
-                <button
-                  onClick={() => {
-                    push(`/${productTypes[indexOfCurrentStep - 1]}`);
-                    setStep(productTypes[indexOfCurrentStep - 1]);
-                  }}
-                >
-                  Previous
-                </button>
-              )}
-              {indexOfCurrentStep < MAX_STEP_INDEX && (
-                <button
-                  onClick={() => {
-                    push(`/${productTypes[indexOfCurrentStep + 1]}`);
-                    setStep(productTypes[indexOfCurrentStep + 1]);
-                  }}
-                >
-                  Next
-                </button>
-              )}
-            </main>
-          </div>
-        </div>
+        <main className={styles.main}>
+          <InputFullName fullName={fullName} setFullName={setFullName} />
+        </main>
       </div>
     </>
   );
