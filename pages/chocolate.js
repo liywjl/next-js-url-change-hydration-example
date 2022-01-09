@@ -5,8 +5,13 @@ import Nav from "../components/Nav";
 
 export default function Chocolate() {
   useEffect(() => {
-    console.log("chocolate.js has mounted");
-    return () => console.log("chocolate.js has un-mounted");
+    console.log("%cchocolate.js %chas mounted", "color: yellow", "color: cyan");
+    return () =>
+      console.log(
+        "%cchocolate.js %chas un-mounted",
+        "color: yellow",
+        "color: red"
+      );
   }, []);
 
   return (

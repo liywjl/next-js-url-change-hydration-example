@@ -3,9 +3,11 @@ import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
-    console.log("MyApp has mounted");
-    return () => console.log("MyApp has un-mounted");
+    console.log("%cMyApp %chas mounted", "color: yellow", "color: cyan");
+    return () =>
+      console.log("%cMyApp %chas un-mounted", "color: yellow", "color: red");
   }, []);
+
   return <Component {...pageProps} />;
 }
 

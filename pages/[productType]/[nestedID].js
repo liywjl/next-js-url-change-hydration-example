@@ -8,8 +8,13 @@ export default function Stepper() {
   const { query } = useRouter();
 
   useEffect(() => {
-    console.log("[nestedID] has mounted");
-    return () => console.log("[nestedID] has un-mounted");
+    console.log("%c[nestedID] %chas mounted", "color: yellow", "color: cyan");
+    return () =>
+      console.log(
+        "%c[nestedID] %chas un-mounted",
+        "color: yellow",
+        "color: red"
+      );
   }, []);
 
   return (
