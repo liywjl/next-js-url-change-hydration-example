@@ -24,13 +24,8 @@ export default function Stepper() {
 
   return (
     <>
-      <div className={styles.container}>
-        <Nav />
-
-        <main className={styles.main}>
-          <InputFullName fullName={fullName} setFullName={setFullName} />
-        </main>
-      </div>
+      <Nav />
+      <InputFullName fullName={fullName} setFullName={setFullName} />
     </>
   );
 }

@@ -16,17 +16,13 @@ export default function Chocolate() {
 
   return (
     <>
-      <div className={styles.container}>
-        <div className={styles.row}>
-          <Nav />
-          <div className={styles.container}>
-            <p> You found the Secret Step about chocolate</p>
-            <p>
-              (note: Nested Routing paths cannot find query.productType as we
-              are no longer in a dynamic path)
-            </p>
-          </div>
-        </div>
+      <Nav />
+      <div>
+        <p> You found the Secret Step about chocolate</p>
+        <p>
+          (note: Nested Routing paths cannot find query.productType as we are no
+          longer in a dynamic path)
+        </p>
       </div>
     </>
   );

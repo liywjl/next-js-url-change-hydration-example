@@ -18,12 +18,12 @@ export default function Stepper() {
   }, []);
 
   return (
-    <div className={styles.container}>
+    <>
       <Nav />
       <div>
         <h2>NestedID Page Router Query</h2>
         {JSON.stringify(query)}
       </div>
-    </div>
+    </>
   );
 }
