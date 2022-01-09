@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
 
-import styles from "../../styles/Home.module.css";
-
 import Nav from "../../components/Nav";
-import InputFullName from "../../components/InputFullName";
+import TextInputForm from "../../components/TextInputForm";
 
-export default function Stepper() {
-  const [fullName, setFullName] = useState();
+export default function Stepper({ globalText, setGlobalText }) {
+  const [localText, setLocalText] = useState();
 
   useEffect(() => {
     console.log(
@@ -25,7 +23,18 @@ export default function Stepper() {
   return (
     <>
       <Nav />
-      <InputFullName fullName={fullName} setFullName={setFullName} />
+      <h1>Global text</h1>
+      <TextInputForm
+        text={globalText}
+        setText={setGlobalText}
+        title={`globalText is ${globalText}`}
+      />
+      <h1>Local text</h1>
+      <TextInputForm
+        text={localText}
+        setText={setLocalText}
+        title={`localText is ${localText}`}
+      />
     </>
   );
 }

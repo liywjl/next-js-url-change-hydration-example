@@ -4,8 +4,8 @@ import styles from "../styles/Home.module.css";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
-  console.log("pageProps");
-  console.log(pageProps);
+  const [globalText, setGlobalText] = useState();
+
   useEffect(() => {
     console.log("%cMyApp %chas mounted", "color: yellow", "color: cyan");
     return () =>
@@ -14,7 +14,11 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <div className={styles.container}>
-      <Component {...pageProps} />
+      <Component
+        globalText={globalText}
+        setGlobalText={setGlobalText}
+        {...pageProps}
+      />
     </div>
   );
 }

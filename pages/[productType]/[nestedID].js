@@ -1,11 +1,10 @@
-import { useEffect } from "react";
-import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
-import styles from "../../styles/Home.module.css";
 import Nav from "../../components/Nav";
+import TextInputForm from "../../components/TextInputForm";
 
-export default function Stepper() {
-  const { query } = useRouter();
+export default function Stepper({ globalText, setGlobalText }) {
+  const [localText, setLocalText] = useState();
 
   useEffect(() => {
     console.log("%c[nestedID] %chas mounted", "color: yellow", "color: cyan");
@@ -21,8 +20,18 @@ export default function Stepper() {
     <>
       <Nav />
       <div>
-        <h2>NestedID Page Router Query</h2>
-        {JSON.stringify(query)}
+        <h1>Global text</h1>
+        <TextInputForm
+          text={globalText}
+          setText={setGlobalText}
+          title={`globalText is ${globalText}`}
+        />
+        <h1>Local text</h1>
+        <TextInputForm
+          text={localText}
+          setText={setLocalText}
+          title={`localText is ${localText}`}
+        />
       </div>
     </>
   );

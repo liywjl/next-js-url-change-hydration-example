@@ -1,9 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-import styles from "../styles/Home.module.css";
 import Nav from "../components/Nav";
+import TextInputForm from "../components/TextInputForm";
 
-export default function Chocolate() {
+export default function Chocolate({ globalText, setGlobalText }) {
+  const [localText, setLocalText] = useState();
+
   useEffect(() => {
     console.log("%cchocolate.js %chas mounted", "color: yellow", "color: cyan");
     return () =>
@@ -18,11 +20,22 @@ export default function Chocolate() {
     <>
       <Nav />
       <div>
-        <p> You found the Secret Step about chocolate</p>
         <p>
-          (note: Nested Routing paths cannot find query.productType as we are no
-          longer in a dynamic path)
+          NOTE: Nested Routing paths cannot find query.productType as we are no
+          longer in a dynamic path
         </p>
+        <h1>Global text</h1>
+        <TextInputForm
+          text={globalText}
+          setText={setGlobalText}
+          title={`globalText is ${globalText}`}
+        />
+        <h1>Local text</h1>
+        <TextInputForm
+          text={localText}
+          setText={setLocalText}
+          title={`localText is ${localText}`}
+        />
       </div>
     </>
   );
