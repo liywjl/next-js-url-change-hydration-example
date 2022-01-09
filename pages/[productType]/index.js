@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
-import { productTypes } from "../../../constants";
+import { productTypes } from "../../constants";
+import styles from "../../styles/Home.module.css";
 
-import Nav from "../../../components/Nav";
-import Header from "../../../components/Header";
-import styles from "../../../styles/Home.module.css";
-import StepOne from "../../../components/StepOne";
-import StepTwo from "../../../components/StepTwo";
-import StepThree from "../../../components/StepThree";
+import Nav from "../../components/Nav";
+import Header from "../../components/Header";
+import StepOne from "../../components/StepOne";
+import StepTwo from "../../components/StepTwo";
+import StepThree from "../../components/StepThree";
 
 const MIN_STEP_INDEX = 0;
 const MAX_STEP_INDEX = 2;
@@ -68,7 +68,7 @@ export default function Stepper() {
               {indexOfCurrentStep > MIN_STEP_INDEX && (
                 <button
                   onClick={() => {
-                    push(`/stepper/${productTypes[indexOfCurrentStep - 1]}`);
+                    push(`/${productTypes[indexOfCurrentStep - 1]}`);
                     setStep(productTypes[indexOfCurrentStep - 1]);
                   }}
                 >
@@ -78,7 +78,7 @@ export default function Stepper() {
               {indexOfCurrentStep < MAX_STEP_INDEX && (
                 <button
                   onClick={() => {
-                    push(`/stepper/${productTypes[indexOfCurrentStep + 1]}`);
+                    push(`/${productTypes[indexOfCurrentStep + 1]}`);
                     setStep(productTypes[indexOfCurrentStep + 1]);
                   }}
                 >

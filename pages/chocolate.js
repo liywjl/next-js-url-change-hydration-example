@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 
-import styles from "../../styles/Home.module.css";
-import Nav from "../../components/Nav";
-import Header from "../../components/Header";
+import styles from "../styles/Home.module.css";
+import Nav from "../components/Nav";
+import Header from "../components/Header";
 
 export default function Chocolate() {
   useEffect(() => {

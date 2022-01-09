@@ -24,34 +24,30 @@ const Nav = function () {
             <tr key={productType}>
               <td>{productType}</td>
               <td>
-                <a
-                  href={`/stepper/${productType}`}
-                >{`/stepper/${productType}`}</a>
+                <a href={`/${productType}`}>{`/${productType}`}</a>
               </td>
               <td>
-                <Link
-                  href={`/stepper/${productType}`}
-                >{`/stepper/${productType}`}</Link>
+                <Link href={`/${productType}`}>{`/${productType}`}</Link>
               </td>
               <td>
                 <Link
                   shallow
-                  href={`/stepper/${productType}`}
-                >{`/stepper/${productType}`}</Link>
+                  href={`/${productType}`}
+                >{`/${productType}`}</Link>
               </td>
               <td>
                 <button
-                  onClick={() => push(`/stepper/${productType}`)}
-                >{`/stepper/${productType}`}</button>
+                  onClick={() => push(`/${productType}`)}
+                >{`/${productType}`}</button>
               </td>
               <td>
                 <button
                   onClick={() =>
-                    push(`/stepper/${productType}`, undefined, {
+                    push(`/${productType}`, undefined, {
                       shallow: true,
                     })
                   }
-                >{`/stepper/${productType}`}</button>
+                >{`/${productType}`}</button>
               </td>
             </tr>
           ))}
@@ -73,34 +69,30 @@ const Nav = function () {
             <tr key={productType}>
               <td>{productType}</td>
               <td>
-                <a
-                  href={`/stepper/${productType}`}
-                >{`/stepper/${productType}`}</a>
+                <a href={`/${productType}`}>{`/${productType}`}</a>
               </td>
               <td>
-                <Link
-                  href={`/stepper/${productType}`}
-                >{`/stepper/${productType}`}</Link>
+                <Link href={`/${productType}`}>{`/${productType}`}</Link>
               </td>
               <td>
                 <Link
                   shallow
-                  href={`/stepper/${productType}`}
-                >{`/stepper/${productType}`}</Link>
+                  href={`/${productType}`}
+                >{`/${productType}`}</Link>
               </td>
               <td>
                 <button
-                  onClick={() => push(`/stepper/${productType}`)}
-                >{`/stepper/${productType}`}</button>
+                  onClick={() => push(`/${productType}`)}
+                >{`/${productType}`}</button>
               </td>
               <td>
                 <button
                   onClick={() =>
-                    push(`/stepper/${productType}`, undefined, {
+                    push(`/${productType}`, undefined, {
                       shallow: true,
                     })
                   }
-                >{`/stepper/${productType}`}</button>
+                >{`/${productType}`}</button>
               </td>
             </tr>
           ))}
@@ -123,39 +115,33 @@ const Nav = function () {
               <td>{productID}</td>
               <td>
                 <a
-                  href={`/stepper/${query.productType}/${productID}`}
-                >{`/stepper/${query.productType}/${productID}`}</a>
+                  href={`/${query.productType}/${productID}`}
+                >{`/${query.productType}/${productID}`}</a>
               </td>
               <td>
                 <Link
-                  href={`/stepper/${query.productType}/${productID}`}
-                >{`/stepper/${query.productType}/${productID}`}</Link>
+                  href={`/${query.productType}/${productID}`}
+                >{`/${query.productType}/${productID}`}</Link>
               </td>
               <td>
                 <Link
                   shallow
-                  href={`/stepper/${query.productType}/${productID}`}
-                >{`/stepper/${query.productType}/${productID}`}</Link>
+                  href={`/${query.productType}/${productID}`}
+                >{`/${query.productType}/${productID}`}</Link>
+              </td>
+              <td>
+                <button
+                  onClick={() => push(`/${query.productType}/${productID}`)}
+                >{`/${query.productType}/${productID}`}</button>
               </td>
               <td>
                 <button
                   onClick={() =>
-                    push(`/stepper/${query.productType}/${productID}`)
+                    push(`/${query.productType}/${productID}`, undefined, {
+                      shallow: true,
+                    })
                   }
-                >{`/stepper/${query.productType}/${productID}`}</button>
-              </td>
-              <td>
-                <button
-                  onClick={() =>
-                    push(
-                      `/stepper/${query.productType}/${productID}`,
-                      undefined,
-                      {
-                        shallow: true,
-                      }
-                    )
-                  }
-                >{`/stepper/${query.productType}/${productID}`}</button>
+                >{`/${query.productType}/${productID}`}</button>
               </td>
             </tr>
           ))}
